@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          I'M SO UNMOTIVATED TO STUDY FOR THE MATH EXAM
         </a>
       </header>
     </div>
