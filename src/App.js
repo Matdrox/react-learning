@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+// import React from 'react';  // Class Based
+import Header from './components/Header';
 
-function App() {
+// FUNCTION BASED
+const App = () => {
+  const name = 'Matei';
+  const x = true;
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          I'M SO UNMOTIVATED TO STUDY FOR THE MATH EXAM
-        </a>
-      </header>
+    <div className='container'>
+      <h1>Hello</h1>
+      <h2>
+        Hello {name}, {x ? 'Yes' : 'No'}!
+      </h2>
+      <Header title='This is a prop'/>
     </div>
   );
 }
+
+// CLASS BASED
+// class App extends React.Component {
+//   render() {
+//     return <h1>Hello from class</h1>
+//   }
+// }
 
 export default App;
