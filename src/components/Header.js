@@ -2,18 +2,22 @@ import PropTypes from 'prop-types';
 import Button from './Button';
 
 const Header = (props) => {
-  const doSomething = () => {
-    alert('YES')
-  }
+  // const onClick = () => {
+  //   alert('YES')
+  // }
   // ({title, numbers}) to get attributes directly
   return (
     <header classNames='header'>
       {/* <h1 style={headingStyle}>{props.title}</h1> */}
       <h1>{props.title}</h1>
       <h2>{props.number}</h2>
-      <Button color='blue' text='Add' doSomething={doSomething}/>
-      <Button color='orange' text='Add'/>
-      <Button color='red' text='Add'/>
+      <Button
+        color={props.showAdd ? 'violet' : 'blue'}
+        text={props.showAdd ? 'Close' : 'Add'}
+        onClick={props.onAdd}
+      />
+      <Button color='orange' text='Add' />
+      <Button color='red' text='Add' />
     </header>
   );
 };

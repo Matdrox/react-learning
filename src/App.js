@@ -2,9 +2,12 @@
 import { useState } from 'react';
 import Header from './components/Header';
 import Tasks from './components/Tasks';
+import AddTask from './components/AddTask';
 
 // FUNCTION BASED
 const App = () => {
+  const [showAddTask, setShowAddTask] = useState(true);
+
   const [tasks, setTasks] = useState([
     {
       id: 1,
@@ -26,6 +29,14 @@ const App = () => {
     },
   ]);
 
+  // ADD TASK
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1;
+    alert(id);
+    const newTask = { id, ...task };
+    setTasks([...tasks, newTask]);
+  };
+
   // DELETE TASK
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
@@ -33,7 +44,11 @@ const App = () => {
 
   // TOGGLE REMINDER
   const toggleReminder = (id) => {
-    setTasks(tasks.map((task) => (task.id === id ? {...task, reminder: !task.reminder} : task)));
+    setTasks(
+      tasks.map((task) =>
+        task.id === id ? { ...task, reminder: !task.reminder } : task
+      )
+    );
   };
 
   const name = 'Matei';
@@ -44,7 +59,12 @@ const App = () => {
       <h2>
         Hello {name}, {x ? 'Yes' : 'No'}!
       </h2>
-      <Header title='This is a prop' />
+      <Header
+        title='This is a prop'
+        onAdd={() => setShowAddTask(!showAddTask)}
+        showAdd={showAddTask}
+      />
+      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder} />
       ) : (
