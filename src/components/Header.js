@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 const Header = (props) => {
   // ({title, numbers}) to get attributes directly
   return (
-    <header>
-      <h1 style={headingStyle}>{props.title}</h1>
+    <header classNames='header'>
+      {/* <h1 style={headingStyle}>{props.title}</h1> */}
+      <h1>{props.title}</h1>
       <h2>{props.number}</h2>
+      <button className='btn'>Add</button>
     </header>
   );
 };
@@ -20,9 +22,10 @@ Header.propTypes = {
   number: PropTypes.number.isRequired,
 };
 
-const headingStyle = {
-    color: 'purple',
-    backgroundColor: 'gray'
-}
+// CSS IN REACT
+// const headingStyle = {
+//     color: 'purple',
+//     backgroundColor: 'gray'
+// }
 
 export default Header;
