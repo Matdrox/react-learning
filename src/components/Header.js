@@ -13,7 +13,7 @@ const Header = (props) => {
       <h2>{props.number}</h2>
       <Button
         color={props.showAdd ? 'violet' : 'blue'}
-        text={props.showAdd ? 'Close' : 'Add'}
+        text={props.showAdd ? 'Close' : 'Open'}
         onClick={props.onAdd}
       />
       <Button color='orange' text='Add' />
